@@ -1,9 +1,8 @@
 package gaia.items;
 
-import gaia.Gaia;
-
 import java.util.List;
 
+import gaia.Gaia;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.EntityXPOrb;

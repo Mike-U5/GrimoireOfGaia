@@ -1,5 +1,7 @@
 package gaia.entity.monster;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import gaia.GaiaBlock;
 import gaia.GaiaItem;
 import gaia.entity.EntityAttributes;
@@ -24,8 +26,6 @@ import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
 public class EntityGaiaCreep extends EntityMobBase {
 	private int lastActiveTime;
@@ -172,7 +172,7 @@ public class EntityGaiaCreep extends EntityMobBase {
 			this.dropItem(GaiaItem.BagOre,1);
 			break;
 		case 1:
-			this.dropItem(GaiaItem.SpawnCardCreeperGirl,1);
+			this.dropItem(Items.gunpowder, 1);
 			break;
 		case 2:
 			this.dropItem(Item.getItemFromBlock(GaiaBlock.DollCreeperGirl), 1);

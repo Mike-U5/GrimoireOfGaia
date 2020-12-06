@@ -1,12 +1,12 @@
 package gaia.renderer.tileentity;
 
+import org.lwjgl.opengl.GL11;
+
 import gaia.model.tileentity.TileModelDoll;
 import gaia.tileentity.TileEntityDollMaid;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
-
-import org.lwjgl.opengl.GL11;
 
 public class TileRenderDollMaid extends TileEntitySpecialRenderer {
 

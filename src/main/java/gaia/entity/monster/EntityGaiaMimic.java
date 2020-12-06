@@ -132,7 +132,7 @@ public class EntityGaiaMimic extends EntityMobBase {
 			this.dropItem(GaiaItem.BagRecord,1);
 			break;
 		case 2:
-			this.dropItem(GaiaItem.SpawnCardTrader,1);
+			this.dropItem(Items.gold_ingot,4);
 			break;
 		case 3:
 			this.experienceValue = EntityAttributes.experienceValue1 * 5;

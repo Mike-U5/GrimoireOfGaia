@@ -1,11 +1,8 @@
 package gaia.items;
 
-import gaia.Gaia;
-import gaia.GaiaItem;
-
 import java.util.List;
-import java.util.Random;
 
+import gaia.Gaia;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemFood;

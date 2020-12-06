@@ -1,11 +1,5 @@
 package gaia.entity;
 
-import gaia.entity.passive.EntityGaiaNPCCreeperGirl;
-import gaia.entity.passive.EntityGaiaNPCEnderGirl;
-import gaia.entity.passive.EntityGaiaNPCHolstaurus;
-import gaia.entity.passive.EntityGaiaNPCSlimeGirl;
-import gaia.entity.passive.EntityGaiaNPCTrader;
-
 import java.util.Iterator;
 
 import net.minecraft.entity.IMerchant;
@@ -147,8 +141,7 @@ public abstract class EntityMobMerchant extends EntityVillager implements INpc, 
 		
 		if(var1.hasKey("Offers")) {
 			NBTTagCompound var2 = var1.getCompoundTag("Offers");
-			if(this instanceof EntityGaiaNPCCreeperGirl || this instanceof EntityGaiaNPCEnderGirl || this instanceof EntityGaiaNPCHolstaurus || this instanceof EntityGaiaNPCSlimeGirl || this instanceof EntityGaiaNPCTrader) this.buyingList = new TradeList(var2);
-			else this.buyingList = new MerchantRecipeList(var2);
+			this.buyingList = new MerchantRecipeList(var2);
 		}
 	}
 	@Override

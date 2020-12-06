@@ -1,11 +1,12 @@
 package gaia.items;
 
-import gaia.Gaia;
-import gaia.GaiaItem;
-
 import java.util.List;
 import java.util.Random;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import gaia.Gaia;
+import gaia.GaiaItem;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
@@ -14,8 +15,6 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
 public class ItemBoxOld extends Item {
 	String texture;
@@ -50,7 +49,7 @@ public class ItemBoxOld extends Item {
 		case 2:
 			return new ItemStack(GaiaItem.MiscGigaGear);
 		case 3:
-			return new ItemStack(GaiaItem.SpawnCard);
+			return new ItemStack(Items.blaze_powder);
 		case 4:
 			return new ItemStack(Items.saddle);
 		case 5:

@@ -1,13 +1,14 @@
 package gaia.entity.monster;
 
-import gaia.GaiaItem;
-import gaia.entity.EntityAttributes;
-import gaia.entity.EntityMobBase;
-
 import java.util.Iterator;
 import java.util.List;
 import java.util.UUID;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import gaia.GaiaItem;
+import gaia.entity.EntityAttributes;
+import gaia.entity.EntityMobBase;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IEntityLivingData;
@@ -33,8 +34,6 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
 public class EntityGaiaWitch extends EntityMobBase implements IRangedAttackMob {
 	private static final Item[] witchDrops = new Item[] { 

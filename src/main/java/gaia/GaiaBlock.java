@@ -1,5 +1,6 @@
 package gaia;
 
+import cpw.mods.fml.common.registry.GameRegistry;
 import gaia.block.BlockBustSphinx;
 import gaia.block.BlockBustValkyrie;
 import gaia.block.BlockBustVampire;
@@ -16,7 +17,6 @@ import gaia.tileentity.TileEntityDollMaid;
 import gaia.tileentity.TileEntityDollSlimeGirl;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import cpw.mods.fml.common.registry.GameRegistry;
 
 public class GaiaBlock {
 	public static final String modid = "GrimoireOfGaia";

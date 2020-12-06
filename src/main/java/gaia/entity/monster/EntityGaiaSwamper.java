@@ -14,6 +14,7 @@ import net.minecraft.entity.ai.EntityAISwimming;
 import net.minecraft.entity.ai.EntityAIWander;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
@@ -121,7 +122,7 @@ public class EntityGaiaSwamper extends EntityMobBase {
 			this.dropItem(GaiaItem.BookHunger,1);
 			break;
 		case 3:
-			this.dropItem(GaiaItem.SpawnCardSlimeGirl,1);
+			this.dropItem(Items.slime_ball,10);
 		}
 	}
 

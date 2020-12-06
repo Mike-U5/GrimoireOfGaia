@@ -1,10 +1,13 @@
 package gaia.renderer;
 
-import gaia.entity.monster.EntityGaiaEnderDragonGirl;
-import gaia.model.ModelGaiaEnderDragonGirl;
-
 import java.util.Random;
 
+import org.lwjgl.opengl.GL11;
+
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import gaia.entity.monster.EntityGaiaEnderDragonGirl;
+import gaia.model.ModelGaiaEnderDragonGirl;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.RenderBlocks;
@@ -13,11 +16,6 @@ import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.ResourceLocation;
-
-import org.lwjgl.opengl.GL11;
-
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
 public class RenderGaiaEnderDragonGirl extends RenderLiving {

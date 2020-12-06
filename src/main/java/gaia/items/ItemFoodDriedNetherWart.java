@@ -1,14 +1,8 @@
 package gaia.items;
 
 import gaia.Gaia;
-
-import java.util.List;
-
 import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemFood;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.StatCollector;
 
 public class ItemFoodDriedNetherWart extends ItemFood {
 	String texture;

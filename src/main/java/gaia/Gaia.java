@@ -1,5 +1,14 @@
 package gaia;
 
+import cpw.mods.fml.common.Mod;
+import cpw.mods.fml.common.Mod.EventHandler;
+import cpw.mods.fml.common.Mod.Instance;
+import cpw.mods.fml.common.SidedProxy;
+import cpw.mods.fml.common.event.FMLInitializationEvent;
+import cpw.mods.fml.common.event.FMLPostInitializationEvent;
+import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.registry.EntityRegistry;
+import cpw.mods.fml.common.registry.GameRegistry;
 import gaia.entity.monster.EntityGaiaAnubis;
 import gaia.entity.monster.EntityGaiaBanshee;
 import gaia.entity.monster.EntityGaiaBaphomet;
@@ -13,7 +22,6 @@ import gaia.entity.monster.EntityGaiaCyclops;
 import gaia.entity.monster.EntityGaiaDhampir;
 import gaia.entity.monster.EntityGaiaDryad;
 import gaia.entity.monster.EntityGaiaDullahan;
-import gaia.entity.monster.EntityGaiaEnderDragonGirl;
 import gaia.entity.monster.EntityGaiaEnderEye;
 import gaia.entity.monster.EntityGaiaFleshLich;
 import gaia.entity.monster.EntityGaiaFutakuchiOnna;
@@ -35,7 +43,6 @@ import gaia.entity.monster.EntityGaiaSelkie;
 import gaia.entity.monster.EntityGaiaShaman;
 import gaia.entity.monster.EntityGaiaSharko;
 import gaia.entity.monster.EntityGaiaSiren;
-import gaia.entity.monster.EntityGaiaSludgeGirl;
 import gaia.entity.monster.EntityGaiaSphinx;
 import gaia.entity.monster.EntityGaiaSpriggan;
 import gaia.entity.monster.EntityGaiaSuccubus;
@@ -48,11 +55,6 @@ import gaia.entity.monster.EntityGaiaWitch;
 import gaia.entity.monster.EntityGaiaWitherCow;
 import gaia.entity.monster.EntityGaiaYeti;
 import gaia.entity.monster.EntityGaiaYukiOnna;
-import gaia.entity.passive.EntityGaiaNPCCreeperGirl;
-import gaia.entity.passive.EntityGaiaNPCEnderGirl;
-import gaia.entity.passive.EntityGaiaNPCHolstaurus;
-import gaia.entity.passive.EntityGaiaNPCSlimeGirl;
-import gaia.entity.passive.EntityGaiaNPCTrader;
 import gaia.entity.passive.EntityGaiaPropFlowerCyan;
 import gaia.entity.projectile.EntityGaiaProjectileMagic;
 import gaia.entity.projectile.EntityGaiaProjectileSmallFireball;
@@ -67,15 +69,6 @@ import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeDictionary.Type;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.common.config.Property;
-import cpw.mods.fml.common.Mod;
-import cpw.mods.fml.common.Mod.EventHandler;
-import cpw.mods.fml.common.Mod.Instance;
-import cpw.mods.fml.common.SidedProxy;
-import cpw.mods.fml.common.event.FMLInitializationEvent;
-import cpw.mods.fml.common.event.FMLPostInitializationEvent;
-import cpw.mods.fml.common.event.FMLPreInitializationEvent;
-import cpw.mods.fml.common.registry.EntityRegistry;
-import cpw.mods.fml.common.registry.GameRegistry;
 
 @Mod(
 		modid = "GrimoireOfGaia",
@@ -199,11 +192,9 @@ public class Gaia
 		EntityRegistry.registerModEntity(EntityGaiaCockatrice.class, "Cockatrice", 8, this, trackingRange, updateFrequency, true);
 		EntityRegistry.registerModEntity(EntityGaiaCreep.class, "Creep", 9, this, trackingRange, updateFrequency, true);
 		EntityRegistry.registerModEntity(EntityGaiaCyclops.class, "Cyclops", 10, this, trackingRange, updateFrequency, true);
-		EntityRegistry.registerModEntity(EntityGaiaPropFlowerCyan.class, "Cyan Flower", 11, this, trackingRange, updateFrequency, true);
 		EntityRegistry.registerModEntity(EntityGaiaDhampir.class, "Dhampir", 12, this, trackingRange, updateFrequency, true);
 		EntityRegistry.registerModEntity(EntityGaiaDryad.class, "Dryad", 13, this, trackingRange, updateFrequency, true);
 		EntityRegistry.registerModEntity(EntityGaiaDullahan.class, "Dullahan", 14, this, trackingRange, updateFrequency, true);
-		EntityRegistry.registerModEntity(EntityGaiaEnderDragonGirl.class, "Ender Dragon Girl", 15, this, trackingRange, updateFrequency, true);
 		EntityRegistry.registerModEntity(EntityGaiaEnderEye.class, "Ender Eye", 16, this, trackingRange, updateFrequency, true);
 		EntityRegistry.registerModEntity(EntityGaiaFleshLich.class, "Flesh Lich", 17, this, trackingRange, updateFrequency, true);
 		EntityRegistry.registerModEntity(EntityGaiaFutakuchiOnna.class, "FutakuchiOnna", 18, this, trackingRange, updateFrequency, true);
@@ -224,7 +215,6 @@ public class Gaia
 		EntityRegistry.registerModEntity(EntityGaiaShaman.class, "Shaman", 32, this, trackingRange, updateFrequency, true);
 		EntityRegistry.registerModEntity(EntityGaiaSharko.class, "Sharko", 33, this, trackingRange, updateFrequency, true);
 		EntityRegistry.registerModEntity(EntityGaiaSiren.class, "Siren", 34, this, trackingRange, updateFrequency, true);
-		EntityRegistry.registerModEntity(EntityGaiaSludgeGirl.class, "Sludge Girl", 35, this, trackingRange, updateFrequency, true);
 		EntityRegistry.registerModEntity(EntityGaiaSphinx.class, "Sphinx", 36, this, trackingRange, updateFrequency, true);
 		EntityRegistry.registerModEntity(EntityGaiaSpriggan.class, "Spriggan", 37, this, trackingRange, updateFrequency, true);
 		EntityRegistry.registerModEntity(EntityGaiaSuccubus.class, "Succubus", 38, this, trackingRange, updateFrequency, true);
@@ -237,19 +227,12 @@ public class Gaia
 		EntityRegistry.registerModEntity(EntityGaiaYeti.class, "Yeti", 45, this, trackingRange, updateFrequency, true);
 		EntityRegistry.registerModEntity(EntityGaiaYukiOnna.class, "Yuki-Onna", 46, this, trackingRange, updateFrequency, true);
 
-		EntityRegistry.registerModEntity(EntityGaiaNPCCreeperGirl.class, "Creeper Girl", 60, this, trackingRange, updateFrequency, true);
-		EntityRegistry.registerModEntity(EntityGaiaNPCEnderGirl.class, "Ender Girl", 63, this, trackingRange, updateFrequency, true);
-		EntityRegistry.registerModEntity(EntityGaiaNPCHolstaurus.class, "Holstaurus", 64, this, trackingRange, updateFrequency, true);
-		EntityRegistry.registerModEntity(EntityGaiaNPCSlimeGirl.class, "Slime Girl", 62, this, trackingRange, updateFrequency, true);
-		EntityRegistry.registerModEntity(EntityGaiaNPCTrader.class, "Trader", 61, this, trackingRange, updateFrequency, true);
-	
 		EntityRegistry.registerModEntity(EntityGaiaProjectileSmallFireball.class, "Small Fireball", 100, this, trackingRange, updateFrequency, true);
 		EntityRegistry.registerModEntity(EntityGaiaProjectileMagic.class, "Magic", 101, this, trackingRange, updateFrequency, true);
 
 		EntityRegistry.registerModEntity(EntityGaiaMandragora.class, "Mandragora", 80, this, trackingRange, updateFrequency, true);
 		EntityRegistry.registerModEntity(EntityGaiaSummonButler.class, "Butler", 81, this, trackingRange, updateFrequency, true);
 
-		//ItemGaiaSpawnEgg.registerEntityEgg(EntityGaiaEntity.class, 0, body, spots);
 		ItemGaiaSpawnEgg.registerEntityEgg(EntityGaiaAnubis.class, 1, 0x353535, 0xb19534);
 		ItemGaiaSpawnEgg.registerEntityEgg(EntityGaiaBanshee.class, 2, 0xeed2e8, 0xc6b0ed);
 		ItemGaiaSpawnEgg.registerEntityEgg(EntityGaiaBaphomet.class, 3, 3559756, 14197864);
@@ -263,10 +246,8 @@ public class Gaia
 		ItemGaiaSpawnEgg.registerEntityEgg(EntityGaiaDhampir.class, 11, 0x9c1c2b, 0xc9b161);
 		ItemGaiaSpawnEgg.registerEntityEgg(EntityGaiaDryad.class, 12, 10255437, 5681460);
 		ItemGaiaSpawnEgg.registerEntityEgg(EntityGaiaDullahan.class, 13, 0x824fab, 0xa4452d);
-		ItemGaiaSpawnEgg.registerEntityEgg(EntityGaiaEnderDragonGirl.class, 14, 3158064, 14711290);
 		ItemGaiaSpawnEgg.registerEntityEgg(EntityGaiaEnderEye.class, 15, 2039583, 3158064);
 		ItemGaiaSpawnEgg.registerEntityEgg(EntityGaiaFleshLich.class, 17, 0x00cccc, 0x799c65);
-		ItemGaiaSpawnEgg.registerEntityEgg(EntityGaiaPropFlowerCyan.class, 16, 1073920, 4045287);
 		ItemGaiaSpawnEgg.registerEntityEgg(EntityGaiaFutakuchiOnna.class, 19, 0x4e3738, 0xb43434);
 		ItemGaiaSpawnEgg.registerEntityEgg(EntityGaiaGryphon.class, 18, 0xf09942, 0xe2e2e2);
 		ItemGaiaSpawnEgg.registerEntityEgg(EntityGaiaHarpy.class, 21, 0xc9b161, 0xa5884e);
@@ -285,7 +266,6 @@ public class Gaia
 		ItemGaiaSpawnEgg.registerEntityEgg(EntityGaiaShaman.class, 32, 0xae6b3c, 0x56b134);
 		ItemGaiaSpawnEgg.registerEntityEgg(EntityGaiaSharko.class, 33, 0x84a498, 0x5c70b1);
 		ItemGaiaSpawnEgg.registerEntityEgg(EntityGaiaSiren.class, 38, 0x29bc55, 0x48a0de);
-		ItemGaiaSpawnEgg.registerEntityEgg(EntityGaiaSludgeGirl.class, 39, 6595667, 7715172);
 		ItemGaiaSpawnEgg.registerEntityEgg(EntityGaiaSphinx.class, 36, 0xf09942, 0x353535);
 		ItemGaiaSpawnEgg.registerEntityEgg(EntityGaiaSpriggan.class, 37, 4010013, 8151614);
 		ItemGaiaSpawnEgg.registerEntityEgg(EntityGaiaSuccubus.class, 42, 4079166, 13218145);
@@ -706,12 +686,6 @@ public class Gaia
 				swamp[i].getSpawnableList(EnumCreatureType.monster).add(SpawnEntry);
 			}
 
-			if(ConfigGaia.SpawnSludgeGirl > 0) 
-			{
-				SpawnEntry = new SpawnListEntry(EntityGaiaSludgeGirl.class, ConfigGaia.SpawnSludgeGirl, 2, 4);
-				swamp[i].getSpawnableList(EnumCreatureType.monster).add(SpawnEntry);
-			}
-
 			if(ConfigGaia.SpawnSwamper > 0) 
 			{
 				SpawnEntry = new SpawnListEntry(EntityGaiaSwamper.class, ConfigGaia.SpawnSwamper, 1, 2);
@@ -1009,20 +983,6 @@ public class Gaia
 			{
 				SpawnEntry = new SpawnListEntry(EntityGaiaBaphomet.class, ConfigGaia.SpawnBaphomet, 1, 2);
 				hell[i].getSpawnableList(EnumCreatureType.monster).add(SpawnEntry);
-			}
-		}
-
-		//sky
-		for(i = 0; i < sky.length; ++i) 
-		{
-			if(BiomeDictionary.isBiomeOfType(sky[i], Type.COLD) 
-					&& (BiomeDictionary.isBiomeOfType(sky[i], Type.DRY))) 
-			{
-				if(ConfigGaia.SpawnEnderDragonGirl > 0) 
-				{
-					SpawnEntry = new SpawnListEntry(EntityGaiaEnderDragonGirl.class, ConfigGaia.SpawnEnderDragonGirl, 1, 2);
-					sky[i].getSpawnableList(EnumCreatureType.monster).add(SpawnEntry);
-				}
 			}
 		}
 	}

@@ -1,8 +1,8 @@
 package gaia.items;
 
+import cpw.mods.fml.common.IFuelHandler;
 import gaia.GaiaItem;
 import net.minecraft.item.ItemStack;
-import cpw.mods.fml.common.IFuelHandler;
 
 public class GaiaItemHandlerFuel implements IFuelHandler {
 

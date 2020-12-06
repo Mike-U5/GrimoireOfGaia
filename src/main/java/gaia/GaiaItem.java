@@ -1,5 +1,6 @@
 package gaia;
 
+import cpw.mods.fml.common.registry.GameRegistry;
 import gaia.items.GaiaDispenserBehaviorMobEgg;
 import gaia.items.ItemAccessoryDollCursed;
 import gaia.items.ItemAccessoryRingHaste;
@@ -39,12 +40,6 @@ import gaia.items.ItemMiscSoulFiery;
 import gaia.items.ItemMiscSoulFire;
 import gaia.items.ItemMiscWeaponEnchanted;
 import gaia.items.ItemShard;
-import gaia.items.ItemSpawnCard;
-import gaia.items.ItemSpawnCardCreeperGirl;
-import gaia.items.ItemSpawnCardEnderGirl;
-import gaia.items.ItemSpawnCardHolstaurus;
-import gaia.items.ItemSpawnCardSlimeGirl;
-import gaia.items.ItemSpawnCardTrader;
 import gaia.items.ItemWeaponBookBattle;
 import gaia.items.ItemWeaponBookBuff;
 import gaia.items.ItemWeaponBookEnder;
@@ -64,7 +59,6 @@ import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
-import cpw.mods.fml.common.registry.GameRegistry;
 
 public class GaiaItem {
 	public static Item Shard;
@@ -92,12 +86,6 @@ public class GaiaItem {
 	public static Item MiscFurnaceFuel;
 	public static Item MiscCurrency;
 	public static Item MiscWeaponEnchanted;
-	public static Item SpawnCard;
-	public static Item SpawnCardCreeperGirl;
-	public static Item SpawnCardEnderGirl;
-	public static Item SpawnCardHolstaurus;
-	public static Item SpawnCardSlimeGirl;
-	public static Item SpawnCardTrader;
 	public static Item BoxIron;
 	public static Item BoxGold;
 	public static Item BoxDiamond;
@@ -157,14 +145,7 @@ public class GaiaItem {
 		MiscRing = new ItemMiscRing("MiscRing");
 		MiscFurnaceFuel = new ItemMiscFurnaceFuel("MiscFurnaceFuel");
 		MiscCurrency = new ItemMiscCurrency("MiscCurrency");
-		MiscWeaponEnchanted = new ItemMiscWeaponEnchanted("MiscWeaponEnchanted");
-		SpawnCard = new ItemSpawnCard("SpawnCard");
-		SpawnCardCreeperGirl = new ItemSpawnCardCreeperGirl("SpawnCardCreeperGirl");
-		SpawnCardEnderGirl = new ItemSpawnCardEnderGirl("SpawnCardEnderGirl");
-		SpawnCardHolstaurus = new ItemSpawnCardHolstaurus("SpawnCardHolstaurus");
-		SpawnCardSlimeGirl = new ItemSpawnCardSlimeGirl("SpawnCardSlimeGirl");
-		SpawnCardTrader = new ItemSpawnCardTrader("SpawnCardTrader");
-		BoxIron = new ItemBoxIron("BoxIron");
+		MiscWeaponEnchanted = new ItemMiscWeaponEnchanted("MiscWeaponEnchanted");BoxIron = new ItemBoxIron("BoxIron");
 		BoxGold = new ItemBoxGold("BoxGold");
 		BoxDiamond = new ItemBoxDiamond("BoxDiamond");
 		BagOre = new ItemBagOre("BagOre");
@@ -217,12 +198,6 @@ public class GaiaItem {
 				MiscFurnaceFuel,
 				MiscCurrency,
 				MiscWeaponEnchanted,
-				SpawnCard, 
-				SpawnCardCreeperGirl, 
-				SpawnCardEnderGirl, 
-				SpawnCardHolstaurus,
-				SpawnCardSlimeGirl,
-				SpawnCardTrader, 
 				BoxIron, 
 				BoxGold, 
 				BoxDiamond, 

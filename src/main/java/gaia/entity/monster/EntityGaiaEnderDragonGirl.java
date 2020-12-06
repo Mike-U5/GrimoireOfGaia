@@ -1,11 +1,10 @@
 package gaia.entity.monster;
 
+import java.util.HashSet;
+
 import gaia.GaiaItem;
 import gaia.entity.EntityAttributes;
 import gaia.entity.EntityMobBase;
-
-import java.util.HashSet;
-
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -344,7 +343,7 @@ public class EntityGaiaEnderDragonGirl extends EntityMobBase {
 			this.dropItem(GaiaItem.BookEnder,1);
 			break;
 		case 3:
-			this.dropItem(GaiaItem.SpawnCardEnderGirl,1);
+			this.dropItem(Items.ender_eye,1);
 		}
 	}
 

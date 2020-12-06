@@ -266,7 +266,7 @@ public class EntityGaiaMinotaurus extends EntityMobBase implements IRangedAttack
 			this.dropItem(GaiaItem.MiscPage,1);
 			break;
 		case 4:
-			this.dropItem(GaiaItem.SpawnCardHolstaurus,1);
+			this.dropItem(Items.beef,1);
 		}
 	}
 
